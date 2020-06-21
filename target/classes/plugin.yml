@@ -1,0 +1,5 @@
+name: Main
+version: 1.0-SNAPSHOT
+main: clearlagcustomize.main.Main
+api-version: 1.13
+depend: [GriefPrevention]
