@@ -1,5 +1,6 @@
 package listener;
 
+import API.MobLocation;
 import clearlagcustomize.main.Main;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -14,6 +15,12 @@ public class Creature implements Listener {
 
     @EventHandler
     public void OnCreatureSpawn(CreatureSpawnEvent e){
+        if (MobLocation.isNeedAdd(e.getLocation())){
+            MobLocation.AddLocation(e.getLocation());
+        }
+        else if (MobLocation.isLocationMaxNum(MobLocation.GetNearLocation(e.getLocation()))){
+            return;
+        }
         List<Entity> NearEnt = (List<Entity>) e.getLocation().getWorld().getNearbyEntities(e.getLocation(), 32, 32, 32);
         for (Entity Ent : NearEnt){
             if (Ent.getType() == EntityType.PLAYER)

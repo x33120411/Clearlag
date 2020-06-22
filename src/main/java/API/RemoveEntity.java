@@ -15,14 +15,13 @@ import java.util.UUID;
 public class RemoveEntity {
 
     public static double SceneRadius = 16;
-    private static int EntityLimit = 5;
     private static HashMap<UUID, List<Entity>> NoticeNearEntity = new HashMap<>();
 
     private static boolean RemoveEntityNotice(Player p){
         final List<Entity> NearEnt = p.getNearbyEntities(SceneRadius, SceneRadius, SceneRadius);
         boolean isNeedRemove = false;
 
-        if (NearEnt.size() > EntityLimit) {
+        if (NearEnt.size() > PluginData.EntityLimit) {
             int RemoveNum = 0;
             for (Entity Ent : NearEnt) {
                 for (Object obj : GriefPrevention.instance.dataStore.getClaims().toArray()) {
@@ -53,8 +52,8 @@ public class RemoveEntity {
     }
 
     public static void RemoveRadiusEntity(Player p){
-        if (NoticeNearEntity.get(p.getUniqueId()).size() > EntityLimit){
-            final int ReduceNum = NoticeNearEntity.get(p.getUniqueId()).size() - EntityLimit;
+        if (NoticeNearEntity.get(p.getUniqueId()).size() > PluginData.EntityLimit){
+            final int ReduceNum = NoticeNearEntity.get(p.getUniqueId()).size() - PluginData.EntityLimit;
             for (int i = 0; i < ReduceNum; i++){
                 NoticeNearEntity.get(p.getUniqueId()).get(i).remove();
             }
