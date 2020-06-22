@@ -21,6 +21,9 @@ public class Creature implements Listener {
         else if (MobLocation.isLocationMaxNum(MobLocation.GetNearLocation(e.getLocation()))){
             return;
         }
+        else {
+            MobLocation.AddLocationValue(MobLocation.GetNearLocation(e.getLocation()), 1);
+        }
         List<Entity> NearEnt = (List<Entity>) e.getLocation().getWorld().getNearbyEntities(e.getLocation(), 32, 32, 32);
         for (Entity Ent : NearEnt){
             if (Ent.getType() == EntityType.PLAYER)

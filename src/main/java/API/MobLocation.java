@@ -11,8 +11,11 @@ public class MobLocation {
     private static HashMap<Location, Integer> LocationNumber = new HashMap<>();
 
     public static boolean isNeedAdd(Location location){
+        if (LocationNumber.size() <= 0)
+            return true;
+
         for (Location testLocation : LocationNumber.keySet()){
-            if (testLocation.distance(location) > RemoveEntity.SceneRadius && testLocation.distance(location) < RemoveEntity.SceneRadius * 2){
+            if (testLocation.distance(location) > RemoveEntity.SceneRadius && testLocation.distance(location) < (RemoveEntity.SceneRadius * 2)){
                 return true;
             }
             if (testLocation.distance(location) > RemoveEntity.SceneRadius * 2){
