@@ -1,7 +1,6 @@
 package clearlagcustomize.main;
 
 import API.RemoveEntity;
-import listener.Chunk;
 import listener.Creature;
 import listener.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +18,10 @@ public final class Main extends JavaPlugin {
         this.saveConfig();
     }
 
+    private void SetTimerDetect(){
+        RemoveEntity.RemoveRadiusEntity();
+    }
+
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -26,6 +29,7 @@ public final class Main extends JavaPlugin {
         SetConfig();
         this.getServer().getPluginManager().registerEvents(new Player(), this);
         this.getServer().getPluginManager().registerEvents(new Creature(), this);
+        SetTimerDetect();
     }
 
     @Override

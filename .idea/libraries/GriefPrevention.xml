@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="GriefPrevention">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../JAVA API/GriefPrevention.jar!/" />
+      <root url="jar://F:/1.15 MCServer/plugins/GriefPrevention.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
